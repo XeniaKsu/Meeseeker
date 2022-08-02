@@ -1,0 +1,2 @@
+class MeeseeksController < ApplicationController
+end
