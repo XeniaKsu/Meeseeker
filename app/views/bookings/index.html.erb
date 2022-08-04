@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Review your booking</h1>
+  <p>Make sure your task is erm...simple. They can't exist for too long</p>
+  <br>
+  <% @bookings.each do |b| %>
+  <%= link_to b.task, booking_path(b) %>
+  <% end %>
+</div>
