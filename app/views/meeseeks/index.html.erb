@@ -1,5 +1,5 @@
 <div class="container">
-  <%= link_to "Add a Meeseeks", new_meeseek_path %>
+  <%# <%= link_to "Add a Meeseeks", new_meeseek_path %> %>
   <% @meeseeks.each do |meeseek| %>
     <div><%= link_to "#{meeseek.id}, #{meeseek.postcode}", meeseek_path(meeseek) %></div>
   <% end %>

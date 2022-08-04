@@ -1,10 +1,17 @@
 <div class="container">
-  <h1><%= @meeseek.id %></h1>
-  <p>Postcode: <%= @meeseek.postcode %></p>
-  <p>Owner contact: <%= @meeseek.user.email %></p>
+  <div row>
+    <div class="col-md-2 col-sm-12">
+      <h1><%= @meeseek.id %></h1>
+      <p>Postcode: <%= @meeseek.postcode %></p>
+      <p>Owner contact: <%= @meeseek.user.email %></p>
 
-  <button type="button" class="btn btn-outline-secondary">Book this Meeseek</button>
-  <p><%= link_to "Back to Meeseeks", meeseeks_path %></p>
-  <%= button_to "Destroy this Meeseek", @meeseek, method: :delete %>
-  <%= link_to "Edit this Meeseek", edit_meeseek_path(@meeseek) %>
+      <button type="button" class="btn btn-outline-secondary">Book this Meeseek</button>
+      <p><%= link_to "Back to Meeseeks", meeseeks_path %></p>
+      <%# <%= button_to "Destroy this Meeseek", @meeseek, method: :delete %>
+      <%# <%= link_to "Edit this Meeseek", edit_meeseek_path(@meeseek) %>
+    </div>
+    <div class = "col-md-6 col-sm-12">
+      <%= render "calendar" %>
+    </div>
+  </div>
 </div>
