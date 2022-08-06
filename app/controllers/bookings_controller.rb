@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
   #   # @booking = Booking.new
   # end
 
+
   def show
     @selected_meeseek = Meeseek.find(params[:meeseek_id])
     @booking = Booking.new
@@ -36,7 +37,9 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:task, :meeseek_id, :user_id, :date_available_from, :data_available_to)
+
+    params.require(:booking).permit(:task, :meeseek_id, :date_available_from, :data_available_to, :user_id)
+
   end
 
 end
