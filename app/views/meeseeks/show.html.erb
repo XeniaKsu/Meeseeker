@@ -8,3 +8,23 @@
   <%= button_to "Destroy this Meeseek", @meeseek, method: :delete %>
   <%= link_to "Edit this Meeseek", edit_meeseek_path(@meeseek) %>
 </div>
+
+<div class="container">
+  <h1>Book a meeseek</h1>
+  <%= simple_form_for ([@meeseek, @booking]) do |f| %>
+    <%= f.input :task, placeholder: "Enter your task"%>
+    <%= f.input :date_available_from, as: :date, placeholder: "You need Mr Meeseeks from"%>
+    <%= f.input :data_available_to, as: :date, placeholder: "You need Mr Meeseeks until"%>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+
+
+  <div class="container">
+    <h1>Review your booking</h1>
+    <p>Make sure your task is erm...simple. They can't exist for too long</p>
+    <br>
+    <% @meeseek.bookings.each do |b| %>
+      <%= b.task %>
+    <% end %>
+  </div>
+</div>
