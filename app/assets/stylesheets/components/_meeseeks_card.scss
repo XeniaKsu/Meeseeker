@@ -1,0 +1,18 @@
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 10px;
+  row-gap: 15px;
+}
+
+.card > img {
+  height: 150px;
+  width: 150px;
+  background-color: #FFFFFF;
+
+}
+
+.card {
+
+  align-items: center;
+}
