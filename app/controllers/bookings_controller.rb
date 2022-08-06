@@ -4,13 +4,16 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
-  def new
-    @meeseek = Meeseek.find(params[:meeseek_id])
-    @booking = Booking.new
-  end
+  # def new
+  #   # @meeseek = Meeseek.find(params[:meeseek_id])
+  #   # @booking = Booking.new
+  # end
+
 
   def show
-    @booking = Booking.find(params[:id])
+    @selected_meeseek = Meeseek.find(params[:meeseek_id])
+    @booking = Booking.new
+    @selected_booking = Booking.find(params[:id])
     @meeseek = Meeseek.new
   end
 
@@ -22,8 +25,8 @@ class BookingsController < ApplicationController
     if @booking.save
       # find a path to redirect a user to
       redirect_to meeseeks_path
-    else
-      render :new, status: :unprocessable_entity
+    # else
+    #   render :new, status: :unprocessable_entity
     end
   end
 
@@ -34,7 +37,9 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
+
     params.require(:booking).permit(:task, :meeseek_id, :date_available_from, :data_available_to, :user_id)
+
   end
 
 end
