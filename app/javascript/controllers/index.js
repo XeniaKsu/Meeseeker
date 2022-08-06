@@ -9,3 +9,6 @@ application.register("calendar", CalendarController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import BookingConfirmController from "./booking_confirm_controller"
+application.register("hello", BookingConfirmController)

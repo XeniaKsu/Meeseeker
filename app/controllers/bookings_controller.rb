@@ -9,7 +9,6 @@ class BookingsController < ApplicationController
   #   # @booking = Booking.new
   # end
 
-
   def show
     @selected_meeseek = Meeseek.find(params[:meeseek_id])
     @booking = Booking.new
@@ -24,7 +23,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     if @booking.save
       # find a path to redirect a user to
-      redirect_to meeseeks_path
+      redirect_to my_bookings_meeseeks_path
     # else
     #   render :new, status: :unprocessable_entity
     end
