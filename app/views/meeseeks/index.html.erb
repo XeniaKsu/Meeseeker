@@ -1,6 +1,23 @@
-<div class="container">
-  <%# <%= link_to "Add a Meeseeks", new_meeseek_path %>
-  <% @meeseeks.each do |meeseek| %>
-    <div><%= link_to "#{meeseek.id}, #{meeseek.postcode}", meeseek_path(meeseek) %></div>
-  <% end %>
+
+<h1>Discover Meeseeks in your area</h1>
+<br>
+<div class="container-body">
+   <div class="map">
+      <img src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoiY2h1bmd1czg0IiwiYSI6ImNsNHJic3FldjAwcnkzZW1sZjc4ZWdnM2sifQ.0lci7lchQpoT2NgaXO1gsQ">
+   </div>
+   <div class="album">
+      <div class="container">
+         <div class="row">
+            <% @meeseeks.each do |meeseek| %>
+            <div class="col-12 col-md-6 col-lg-3">
+               <div class="card">
+                  <h2><%= meeseek.id %></h2>
+                  <%= image_tag meeseek.image %>
+                  <%= link_to meeseek.postcode, meeseek_path(meeseek) %>
+               </div>
+            </div>
+            <% end %>
+         </div>
+      </div>
+   </div>
 </div>
