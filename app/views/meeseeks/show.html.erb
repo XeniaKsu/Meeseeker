@@ -1,10 +1,41 @@
 <div class="container">
-  <h1><%= @meeseek.id %></h1>
-  <p>Postcode: <%= @meeseek.postcode %></p>
-  <p>Owner contact: <%= @meeseek.user.email %></p>
+  <div class="row">
+    <div class="col-md-6">
+      <h1><%= @meeseek.id %></h1>
+      <p>Postcode: <%= @meeseek.postcode %></p>
+      <p>Owner contact: <%= @meeseek.user.email %></p>
+      <button type="button" class="btn btn-outline-secondary">Book this Meeseek</button>
+      <div class="meeseek-image"><%= image_tag (@meeseek.image)%></div>
+      <p><%= link_to "Back to Meeseeks", meeseeks_path %></p>
+          <%# <%= button_to "Destroy this Meeseek", @meeseek, method: :delete %>
+    </div>
+    <div class="col-md-6">
+      <div class="container">
+  <h1>Book a meeseek</h1>
+  <%= simple_form_for ([@meeseek, @booking]) do |f| %> %>
+    <%= f.input :task, placeholder: "Enter your task"%>
+    <%= f.input :date_available_from, as: :date, placeholder: "You need Mr Meeseeks from"%>
+    <%= f.input :date_available_to, as: :date, placeholder: "You need Mr Meeseeks until"%>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+</div>
+      </div>
+<%# phase 2 - if new booking, display booking form, if clicked submit button, display booking detail %>
+    </div>
+  <%# phase 2 -<%= link_to "Edit this Meeseek", edit_meeseek_path(@meeseek) %>
+  </div>
 
-  <button type="button" class="btn btn-outline-secondary">Book this Meeseek</button>
-  <p><%= link_to "Back to Meeseeks", meeseeks_path %></p>
-  <%= button_to "Destroy this Meeseek", @meeseek, method: :delete %>
-  <%= link_to "Edit this Meeseek", edit_meeseek_path(@meeseek) %>
+  <div class="container">
+    <div class="row">
+      <h1 id="review-booking">Review your booking</h1>
+      <p>Make sure your task is erm...simple. They can't exist for too long</p>
+      <br>
+      <% @meeseek.bookings.each do |b| %>
+      <ul>
+        <li style="list-style-type:circle;"><%= b.task  %></li>
+      </ul>
+      <% end %>
+    </div>
+  </div>
+
 </div>

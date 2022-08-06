@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_04_065351) do
   create_table "bookings", force: :cascade do |t|
     t.text "task"
     t.date "date_available_from"
-    t.date "data_available_to"
+    t.date "date_available_to"
     t.bigint "user_id", null: false
     t.bigint "meeseek_id", null: false
     t.datetime "created_at", null: false
