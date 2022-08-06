@@ -3,8 +3,8 @@
   <p>Postcode: <%= @meeseek.postcode %></p>
   <p>Owner contact: <%= @meeseek.user.email %></p>
 
-  <button type="button" class="btn btn-outline-secondary">Book this Meeseek</button>
+  <button type="button" class="btn btn-outline-secondary"><%= link_to "Book This Meeseek",  %></button>
   <p><%= link_to "Back to Meeseeks", meeseeks_path %></p>
-  <%= button_to "Destroy this Meeseek", @meeseek, method: :delete %>
-  <%= link_to "Edit this Meeseek", edit_meeseek_path(@meeseek) %>
+  <%# <%= button_to "Destroy this Meeseek", @meeseek, method: :delete %>
+  <%# <%= link_to "Edit this Meeseek", edit_meeseek_path(@meeseek) %>
 </div>
