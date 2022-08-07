@@ -1,3 +1,38 @@
 .calendar-display-none {
   display: none;
 }
+
+.simple-calendar {
+background-color: $beige;
+z-index: 100;
+  .day {}
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {
+  }
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {}
+  .next-month { }
+  .current-month {}
+
+  .has-events {
+    background-color: $bogey-green;
+  }
+}
+
+.calendar-heading {
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+}

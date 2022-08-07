@@ -1,20 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-* {
-  max-height: 100vh;
-}
 
 h1, h2 {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 700;
+  color: $dark-brown;
 }
 
 h3, h4, h5 h6 {
   font-family: 'ubuntu', sans-serif;
   font-weight: 400;
+  color: $dark-brown;
+}
+
+.link {
+  text-decoration: none;
+  color: $dark-brown;
+  &:hover {
+    color:$meeseek-blue;
+  }
 }
 
 p {
   font-family: 'Poppins', sans-serif;
+  color: $dark-brown;
 }
