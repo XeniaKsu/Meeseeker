@@ -40,6 +40,10 @@ class MeeseeksController < ApplicationController
     redirect_to meeseeks_path, notice: "Meeseek was successfully destroyed"
   end
 
+  def my_bookings
+    @my_bookings = Booking.where(user_id: current_user)
+  end
+
   private
 
   def meeseek_params

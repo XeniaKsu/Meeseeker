@@ -5,5 +5,11 @@ class Meeseek < ApplicationRecord
   # postcode_regex = /[a-z]+\d+[a-z]?\s?\d[a-z]{2}/
   # validates_presence_of :postcode, format: { with: postcode_regex }
   validates_presence_of :postcode
-   validates_presence_of :user
+  validates_presence_of :user
+
+  # Shows available dates
+  # def available_dates
+  #   next_reservation = bookings.where()
+
+  # end
 end
