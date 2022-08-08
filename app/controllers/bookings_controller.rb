@@ -23,9 +23,9 @@ class BookingsController < ApplicationController
       @booking.meeseek = @meeseek
       @booking.user = current_user
       @booking.save
-      redirect_to my_bookings_meeseeks_path
+      redirect_to my_bookings_meeseeks_path, success: "Congrats, your booking has been confirmed"
     else
-      redirect_to new_user_session_path
+      redirect_to new_user_session_path, danger: "You need to be logged in"
     end
   end
 
