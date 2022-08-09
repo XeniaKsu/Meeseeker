@@ -3,8 +3,8 @@ class MeeseeksController < ApplicationController
   before_action :set_meeseek, only: %i[show edit update destroy]
 
   def index
-    if params[:postcode].present?
-      @meeseeks = Meeseek.search_by_postcode_and_dates(params[:query])
+    if params[:query].present?
+      @meeseeks = Meeseek.search_by_postcode(params[:query])
     else
       @meeseeks = Meeseek.all
     end
