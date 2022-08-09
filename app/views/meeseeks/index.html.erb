@@ -1,27 +1,42 @@
 
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <div class="search-field p-3">
+        <h3 class="pb-2">Search by postcode</h3>
+        <%= form_tag meeseeks_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "enter postcode" %>
+        <%= submit_tag "Search", class: "button-primary px-5 mx-4" %>
+        <% end %>
 
-
-<h1>Discover Meeseeks in your area</h1>
-<br>
-
-<div class="container-body">
-
-   <div class="map">
-      <img src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoiY2h1bmd1czg0IiwiYSI6ImNsNHJic3FldjAwcnkzZW1sZjc4ZWdnM2sifQ.0lci7lchQpoT2NgaXO1gsQ">
-   </div>
-   <div class="album">
-      <div class="container">
-         <div class="row">
-            <% @meeseeks.each do |meeseek| %>
-            <div class="col-12 col-md-6 col-lg-3">
-               <div class="card">
-                  <h2><%= meeseek.id %></h2>
-                  <%= image_tag meeseek.image %>
-                  <%= link_to meeseek.postcode, meeseek_path(meeseek) %>
-               </div>
-            </div>
-            <% end %>
-         </div>
       </div>
-
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8">
+      <div class="cards">
+          <% @meeseeks.each do |meeseek| %>
+            <%= link_to meeseek_path(meeseek) do %>
+                <div class="card">
+                  <div class="card-img-top meeseek-card" style="background-image:url(<%= asset_path meeseek.image %>)">
+                  </div>
+                  <div class="card-body d-flex justify-content-around p-1">
+                      <div class="card-title text-start">
+                        <p>Mr Meeseek #<%= meeseek.id %></p>
+                      </div>
+                      <div class="card-postcode text-end">
+                        <p><%= meeseek.postcode %></p>
+                      </div>
+                  </div>
+                </div>
+            <% end %>
+          <% end %>
+        </div>
+    </div>
+    <div class="col-4">
+      <div class="map">
+          <img src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoiY2h1bmd1czg0IiwiYSI6ImNsNHJic3FldjAwcnkzZW1sZjc4ZWdnM2sifQ.0lci7lchQpoT2NgaXO1gsQ">
+      </div>
+  </div>>
+  </div>
 </div>
