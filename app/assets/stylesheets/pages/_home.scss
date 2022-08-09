@@ -1,1 +1,56 @@
 // Specific CSS for your home-page
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Roboto+Condensed:wght@700&display=swap');
+
+
+.meeseeker-logo {
+  display: block;
+  height: 50%;
+  width: 50%;
+  margin: 0% auto;
+  top: 50%;
+
+}
+
+.home-banner {
+  background: linear-gradient(to bottom, #fff 50%, #BED488 50%);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-banner-subtitle {
+  font-family: 'Gloria Hallelujah', cursive;
+  color: #FFFBFB;
+  font-size: 4rem;
+}
+
+.home-page-button {
+
+  width: 150px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  background-color: #E5DABD;
+  margin-top: 50px;
+  text-decoration: none;
+  text-align: center;
+
+  border-radius: 8px;
+
+}
+
+.home-page-button a {
+  text-decoration: none;
+  font-family: 'Gloria Hallelujah', cursive;
+  color: #302F2B;
+
+}
+
+.home-page-button:hover {
+  background-color: #302F2B;
+}
+
+.home-page-button a:hover {
+  color:#E5DABD ;
+}
