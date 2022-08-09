@@ -4,10 +4,6 @@ class MeeseeksController < ApplicationController
 
   def index
     if params[:query].present?
-      # sql_query = <<~SQL
-      #   meeseeks.postcode @@ :query
-      # SQL
-      # @meeseeks = Meeseek.where(sql_query, query: "%{params[:query]}%")
       @meeseeks = Meeseek.search_by_postcode(params[:query])
     else
       @meeseeks = Meeseek.all
@@ -16,7 +12,6 @@ class MeeseeksController < ApplicationController
 
   def show
     @booking = Booking.new
-
   end
 
   def new
