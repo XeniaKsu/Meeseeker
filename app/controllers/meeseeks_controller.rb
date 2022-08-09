@@ -3,12 +3,20 @@ class MeeseeksController < ApplicationController
   before_action :set_meeseek, only: %i[show edit update destroy]
 
   def index
-    @meeseeks = Meeseek.all
+    if params[:query].present?
+      # sql_query = <<~SQL
+      #   meeseeks.postcode @@ :query
+      # SQL
+      # @meeseeks = Meeseek.where(sql_query, query: "%{params[:query]}%")
+      @meeseeks = Meeseek.search_by_postcode(params[:query])
+    else
+      @meeseeks = Meeseek.all
+    end
   end
 
   def show
     @booking = Booking.new
- 
+
   end
 
   def new

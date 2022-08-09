@@ -14,4 +14,11 @@ class Meeseek < ApplicationRecord
 
   # end
 
+  include PgSearch::Model
+  pg_search_scope :search_by_postcode,
+    against: [ :postcode ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
 end
