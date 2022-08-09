@@ -4,6 +4,12 @@ class MeeseeksController < ApplicationController
 
   def index
     @meeseeks = Meeseek.all
+    @markers = @meeseeks.geocoded.map do |meeseek|
+      {
+        lat: meeseek.latitude,
+        lng: meeseek.longitude
+      }
+    end
   end
 
   def show
