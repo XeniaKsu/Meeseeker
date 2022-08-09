@@ -6,11 +6,16 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :meeseeks do
-    member do
-      get :booking
+
+    collection do
+      get :my_bookings
     end
+
+
     resources :bookings, only: [:index, :show, :update, :destroy, :create]
   end
+
+
 
 
 
