@@ -7,9 +7,11 @@ class Meeseek < ApplicationRecord
   validates_presence_of :postcode
   validates_presence_of :user
 
+
   # Shows available dates
   # def available_dates
   #   next_reservation = bookings.where()
 
   # end
+
 end
