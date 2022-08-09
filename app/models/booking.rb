@@ -1,28 +1,32 @@
 class Booking < ApplicationRecord
   belongs_to :user, dependent: :destroy
   belongs_to :meeseek, dependent: :destroy
-  validates_presence_of :meeseek, :task
-  validate :no_past_booking
-  validate :overlaps
+  validates :task, presence: true
+  validate :date_in_past
+  validate :validate_other_booking_overlap
+  scope :future_reservations, -> { where("date_available_to > ?", Date.today)}
   # Need to add validation around if Meeseeks already booked during that time then not possible to book again.
   #add user to validation
 
+  def date_in_past
+    if Date.today > date_available_to || Date.today > date_available_from
+      errors.add(:task, "Date can't be in the past")
+    end
+  end
 
-  # Bookings cannot be in the past
-  # def no_past_booking
-  #   if Date.today > data_available_to || date_available_from
-  #     redirect_to meeseek_path danger: "Booking cannot be in the past"
-  #   end
-  # end
+  # duration_ofstay = date_available_from - date_available_to
+  def duration
+    date_available_from..date_available_to
+  end
 
-  # Ovelapping booking
-  # def overlaps
-  #   bookings = Booking.where(meeseek_id: id)
-  #   bookings.each do |booking|
-  #     if data_available_to < booking.data_available_to && booking.date_available_from < date_available_from
-  #       errors.add(:overlaps, 'Already booked')
-  #     end
-  #   end
-  # end
+  private
+
+  def validate_other_booking_overlap
+    other_bookings = Booking.all
+    is_overlapping = other_bookings.any? do |other_booking|
+      duration.overlaps?(other_booking.duration)
+    end
+    errors.add(:task, "Someone else has booked during this time") if is_overlapping
+  end
 
 end
