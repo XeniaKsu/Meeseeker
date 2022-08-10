@@ -8,12 +8,18 @@
       <h2>My bookings</h2>
         <ul>
           <% @my_bookings.each do |booking|%>
-            <div class="my-booking-card">
-            <li>
-              <h4><%= booking.task %></h4>
-              <h5>Meeseek: <%= booking.meeseek_id %></h5>
-              <p>From: <%= booking.date_available_from %> To: <%= booking.date_available_to %></p>
-            </li>
+            <div class="my-booking-card flex-container">
+              <div class="flex-item">
+                <li>
+                  <h4>Booking Task: <%= booking.task %></h4>
+                  <h5>Meeseek: <%= booking.meeseek_id %></h5>
+                  <p>From: <%= booking.date_available_from %> To: <%= booking.date_available_to %></p>
+                </li>
+              </div>
+              <div class="flex-item">
+                <i class="fa-solid fa-pen-to-square", style="color:#A3B081"></i>
+                <i class="fa-solid fa-ban", style="color:#A3B081"></i>
+              </div>
             </div>
           <% end %>
         </ul>
