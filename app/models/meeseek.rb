@@ -15,4 +15,11 @@ class Meeseek < ApplicationRecord
     next_reservation.date_available_to.strftime(date_format)..Date.today.end_of_month.strftime(date_format)
   end
 
+  include PgSearch::Model
+  pg_search_scope :search_by_postcode,
+    against: [ :postcode ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
 end
