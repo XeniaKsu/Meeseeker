@@ -3,13 +3,16 @@ class MeeseeksController < ApplicationController
   before_action :set_meeseek, only: %i[show edit update destroy]
 
   def index
-    @meeseeks = Meeseek.all
+    if params[:query].present?
+      @meeseeks = Meeseek.search_by_postcode(params[:query])
+    else
+      @meeseeks = Meeseek.all
+    end
     @markers = @meeseeks.geocoded.map do |meeseek|
       {
         lat: meeseek.latitude,
         lng: meeseek.longitude
       }
-    end
   end
 
   def show

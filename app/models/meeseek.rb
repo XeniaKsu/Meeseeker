@@ -12,8 +12,18 @@ class Meeseek < ApplicationRecord
   validates_presence_of :user
 
   # Shows available dates
-  # def available_dates
-  #   next_reservation = bookings.where()
+  def available_dates
+    date_format = "%b %e"
+    next_reservation = bookings.future_reservations.order(date_available_to: :desc).first
+    return Date.tomorrow.strftime(date_format)..Date.today.end_of_year.strftime(date_format) if next_reservation.nil?
+    next_reservation.date_available_to.strftime(date_format)..Date.today.end_of_month.strftime(date_format)
+  end
 
-  # end
+  include PgSearch::Model
+  pg_search_scope :search_by_postcode,
+    against: [ :postcode ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
 end

@@ -1,13 +1,22 @@
 <div class="container">
-  <h1>My bookings</h1>
-  <ul>
-    <% @my_bookings.each do |booking|%>
-      <li>
-        <h4>Task: <%= booking.task %></h4>
-        <h5> Meeseek: <%= booking.meeseek_id %></h5>
-        <p>Start Date: <%= booking.date_available_from %></p>
-        <p>End Date: <%= booking.date_available_to %></p>
-      </li>
-    <% end %>
-  </ul>
+  <div class="my_bookings row">
+    <div class="profile_pic col-md-6 col-sm-12">
+        <%= image_tag 'mr-meeseeks.png', class: 'meeseeker-my-bookings'%>
+        <h1><%= current_user.email %></h1>
+    </div>
+    <div class="bookings col-md-6 col-sm-12">
+      <h2>My bookings</h2>
+        <ul>
+          <% @my_bookings.each do |booking|%>
+            <div class="my-booking-card">
+            <li>
+              <h4><%= booking.task %></h4>
+              <h5>Meeseek: <%= booking.meeseek_id %></h5>
+              <p>From: <%= booking.date_available_from %> To: <%= booking.date_available_to %></p>
+            </li>
+            </div>
+          <% end %>
+        </ul>
+    </div>
+  </div>
 </div>
