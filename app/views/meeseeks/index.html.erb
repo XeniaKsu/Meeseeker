@@ -34,9 +34,12 @@
         </div>
     </div>
     <div class="col-4">
-      <div class="map">
-          <img src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoiY2h1bmd1czg0IiwiYSI6ImNsNHJic3FldjAwcnkzZW1sZjc4ZWdnM2sifQ.0lci7lchQpoT2NgaXO1gsQ">
-      </div>
+      <div class="map" style="width: 100%; height: 600px;"
+                data-controller="map"
+                data-map-markers-value="<%= @markers.to_json %>"
+                data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+            </div>
   </div>>
   </div>
+
 </div>
