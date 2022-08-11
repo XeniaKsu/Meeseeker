@@ -3,8 +3,38 @@
   height: 400px;
   width: 400px;
   padding-top: 16px;
+  text-align: center;
 }
 
 .bookings ul {
   list-style: none;
+  margin: 0; padding: 0;
+}
+
+.my-booking-card {
+  background-color: $beige;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 8px;
+}
+
+.profile_pic {
+  align-items: center;
+}
+
+.my_bookings {
+ padding-top: 16px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.my_bookings p {
+  font: $body-font;
+}
+
+.my_bookings h1 h2 h4 h5 {
+  font: $headers-font;
 }
