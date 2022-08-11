@@ -33,6 +33,18 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    @meeseek = Meeseek.find(params[:meeseek_id])
+    @booking = Booking.new(booking_params)
+    @booking.meeseek = @meeseek
+    @booking.user = current_user
+    if @booking.save
+      redirect_to my_bookings_meeseeks_path, success: "Congrats, your booking has been changed"
+    else
+      redirect_to meeseek_path(:id), danger: @booking.errors[:task].join(" & ")
+    end
+  end
+
   private
 
   def set_booking
