@@ -8,12 +8,14 @@ class MeeseeksController < ApplicationController
     else
       @meeseeks = Meeseek.all
     end
-    # @markers = @meeseeks.geocoded.map do |meeseek|
-    #   {
-    #     lat: meeseek.latitude,
-    #     lng: meeseek.longitude
-    #   }
-    # end
+
+    @markers = @meeseeks.geocoded.map do |meeseek|
+      {
+        lat: meeseek.latitude,
+        lng: meeseek.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {meeseek: meeseek})
+      }
+    end
   end
 
   def show
