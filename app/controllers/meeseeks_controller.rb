@@ -11,7 +11,8 @@ class MeeseeksController < ApplicationController
     @markers = @meeseeks.geocoded.map do |meeseek|
       {
         lat: meeseek.latitude,
-        lng: meeseek.longitude
+        lng: meeseek.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {meeseek: meeseek})
       }
     end
   end
