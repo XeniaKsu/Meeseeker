@@ -6,10 +6,10 @@
       <%= image_tag (@meeseek.image)%>
       <%# <%= button_to "Destroy this Meeseek", @meeseek, method: :delete %>
       <%# <%= link_to "Edit this Meeseek", edit_meeseek_path(@meeseek) %>
-      <p>Hi, I’m Mr Meeseeks, look at me! We are created to serve a singular purpose for which we will go to any lengths to fufill! Existence is pain to a Meeseeks,  so please keep your tasks simple.</p>
+      <p style="margin-left:10%; width: 80%;">Hi, I’m Mr Meeseeks, look at me! We are created to serve a singular purpose for which we will go to any lengths to fufill! Existence is pain to a Meeseeks,  so please keep your tasks simple.</p>
     </div>
 
-    <div class="col-md-6 col-sm-12 background-blue">
+    <div class="col-md-6 col-sm-12  ">
       <div class="meeseek-summary">
         <h1>Mr Meeseeks #<%= @meeseek.id %></h1>
         <p>Postcode: <%= @meeseek.postcode %></p>
@@ -30,7 +30,7 @@
             <%= f.input :task, required: true, placeholder: "Enter your task"%>
             <%= f.date_field :date_available_from, as: :date, placeholder: "You need Mr Meeseeks from"%>
             <%= f.date_field :date_available_to, as: :date, placeholder: "You need Mr Meeseeks until"%>
-            <%= link_to 'Login', new_user_session_path, class: "button-book" %>
+            <%= link_to 'Login', new_user_session_path, class: "button-primary mt-3" %>
           <% end %>
         <% end %>
       </div>
@@ -40,7 +40,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 col-sm-12">
       <p><%= link_to "< Back to Meeseeks", meeseeks_path %></p>
           <%# <%= button_to "Destroy this Meeseek", @meeseek, method: :delete %>
     </div>

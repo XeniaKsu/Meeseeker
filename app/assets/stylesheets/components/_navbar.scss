@@ -10,3 +10,20 @@
 .navbar-lewagon .navbar-brand img {
   width: 80px;
 }
+
+.navbar {
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+}
+
+.navbar a {
+
+  &:hover {
+    text-decoration: underline;
+    color:white;
+    background-color: $bogey-green
+  }
+
+  &:active {
+    background-color: $dark-brown
+  }
+}
