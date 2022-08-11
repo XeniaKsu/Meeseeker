@@ -29,4 +29,13 @@ class Booking < ApplicationRecord
     errors.add(:task, "Someone else has booked during this time") if is_overlapping
   end
 
+  # def validate_other_booking_overlap
+  #   bookings = Booking.where(params[:meeseek_id])
+  #   bookings.each do |booking|
+  #     if date_available_from < booking.date_available_to && booking.date_available_from < date_available_to
+  #       errors.add(:task, "Someone else has booked during this time")
+  #     end
+  #   end
+  # end
+
 end

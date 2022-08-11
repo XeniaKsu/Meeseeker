@@ -13,6 +13,7 @@ class MeeseeksController < ApplicationController
         lat: meeseek.latitude,
         lng: meeseek.longitude
       }
+    end
   end
 
   def show
