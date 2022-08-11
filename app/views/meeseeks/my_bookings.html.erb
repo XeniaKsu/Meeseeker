@@ -17,7 +17,9 @@
                 </li>
               </div>
               <div class="flex-item">
+                <%= link_to edit_meeseek_booking_path(booking.meeseek_id, booking.id) do %>
                 <i class="fa-solid fa-pen-to-square", style="color:#A3B081"></i>
+                <% end %>
                 <i class="fa-solid fa-ban", style="color:#A3B081"></i>
               </div>
             </div>

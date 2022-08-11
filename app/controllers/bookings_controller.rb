@@ -33,9 +33,15 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+    @meeseek = Meeseek.find(params[:meeseek_id])
+    @booking = Booking.find(params[:id])
+  end
+
   def update
     @meeseek = Meeseek.find(params[:meeseek_id])
-    @booking = Booking.new(booking_params)
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
     @booking.meeseek = @meeseek
     @booking.user = current_user
     if @booking.save

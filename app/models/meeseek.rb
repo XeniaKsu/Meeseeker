@@ -13,9 +13,10 @@ class Meeseek < ApplicationRecord
   # Shows available dates
   def available_dates
     date_format = "%b %e"
-    next_reservation = bookings.future_reservations.order(date_available_to: :desc).first
+    next_reservation = bookings.future_reservations.order(date_available_to: :asc).first
     return Date.tomorrow.strftime(date_format)..Date.today.end_of_year.strftime(date_format) if next_reservation.nil?
-    next_reservation.date_available_to.strftime(date_format)..Date.today.end_of_month.strftime(date_format)
+    next_reservation.date_available_from.strftime(date_format)..Date.today.end_of_year.strftime(date_format)
+    # Loop through each day coming up and see if there are bookings
   end
 
   include PgSearch::Model

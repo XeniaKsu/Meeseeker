@@ -10,9 +10,7 @@ Rails.application.routes.draw do
     collection do
       get :my_bookings
     end
-
-
-    resources :bookings, only: [:index, :show, :update, :destroy, :create]
+    resources :bookings, only: [:index, :show, :update, :destroy, :create, :edit]
   end
 
 
