@@ -1,5 +1,12 @@
         <div class="calendar-display-none" data-calendar-target="calendar">
-          <%= month_calendar  do |date|  %>
-          <%= date.to_formatted_s(:short) %>
+          <%= month_calendar(attribute: :date_available_from, end_attribute: :date_available_to, events: @calendar_bookings) do |date, calendar_bookings|  %>
+              <%= date.to_formatted_s(:short) %>
+              <% calendar_bookings.each do |booking| %>
+                <div class="card-title">
+                  <% if booking.task != nil %>
+                    <p>Booked</p>
+                  <% end %>
+                </div>
+              <% end %>
           <% end %>
         </div>

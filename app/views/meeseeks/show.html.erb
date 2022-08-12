@@ -23,7 +23,6 @@
       </div>
       <div class="book-meeseek">
         <h1>Book a meeseek</h1>
-        <p>Next Available Date: <%= @meeseek.available_dates.first %></p>
         <% if user_signed_in? %>
           <%= simple_form_for ([@meeseek, @booking]) do |f| %>
             <%= f.input :task, placeholder: "Enter your task"%>

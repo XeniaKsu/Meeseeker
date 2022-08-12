@@ -18,6 +18,10 @@ class MeeseeksController < ApplicationController
 
   def show
     @booking = Booking.new
+    @calendar_bookings = Booking.where(
+      date_available_from: Date.today.beginning_of_month.beginning_of_week..Date.today.end_of_year,
+      meeseek_id: params[:id]
+    )
   end
 
   def new

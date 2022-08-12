@@ -19,6 +19,24 @@ class Meeseek < ApplicationRecord
     # Loop through each day coming up and see if there are bookings
   end
 
+  # def upcoming_available_dates
+    # start_date = Date.today
+    # end_date = Date.today + 15
+    # start_date..end_date.each do |date|
+      # if date.has_booking == true
+      #     puts date
+      # end
+  # end
+
+  # def has_booking
+  #   if Meeseek.booking == true
+  #       true
+  #   end
+  # end
+
+
+
+
   include PgSearch::Model
   pg_search_scope :search_by_postcode,
     against: [ :postcode ],

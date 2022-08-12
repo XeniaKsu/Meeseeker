@@ -85,3 +85,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# Gem file for booking calendar overlap
+gem 'validates_overlap'
