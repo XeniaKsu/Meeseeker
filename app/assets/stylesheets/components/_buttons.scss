@@ -6,6 +6,8 @@
   padding: 10px 20px;
   margin-right: 20px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  color: white;
 }
 
 .button-book {
@@ -17,5 +19,19 @@
   margin-right: 20px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   margin-top: 32px;
+}
 
+.button-login {
+  background-color: $bogey-green;
+  width: 50%;
+  border-radius: 25px;
+  font-family: 'poppins', sans-serif;
+  border: none;
+  margin-right: 20px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.book-meeseek .button-primary {
+  display: block;
+  width: 46%;
 }
