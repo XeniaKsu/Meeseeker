@@ -3,7 +3,7 @@ class Booking < ApplicationRecord
   belongs_to :meeseek, dependent: :destroy
   validates :task, presence: true
   validate :date_in_past
-  validate :validate_other_booking_overlap
+  validate :validate_other_booking_overlap, on: :create
   scope :future_reservations, -> { where("date_available_to > ?", Date.today)}
   # Need to add validation around if Meeseeks already booked during that time then not possible to book again.
   #add user to validation
