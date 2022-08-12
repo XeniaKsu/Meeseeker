@@ -1,8 +1,15 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-6">
-      <div class="search-field p-3">
+    <div class="col-6"
+          data-controller="search-field-reveal"
+          >
+      <button class="button-primary mt-3 mb-3"
+              data-action="click->search-field-reveal#reveal"
+              data-search-field-reveal-target="button">
+                Search by Postcode <i class="fa-solid fa-magnifying-glass mx-2"></i></button>
+      <div class="search-field search-field-hide p-3"
+            data-search-field-reveal-target="search">
         <h3 class="pb-2">Search by postcode</h3>
         <%= form_tag meeseeks_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "enter postcode" %>
