@@ -1,7 +1,10 @@
 <div class="container">
-  <h1>Create a new Meeseek</h1>
-  <%= simple_form_for @meeseek do |f| %>
-    <%= f.input :postcode, placeholder: "Enter a valid postcode"%>
-    <%= f.submit class: "btn btn-primary" %>
-  <% end %>
+  <h1 class="mb-5">Create a new Meeseek</h1>
+  <div class="background-blue p-4 rounded">
+    <%= simple_form_for @meeseek do |f| %>
+      <%= f.input :postcode, placeholder: "Enter a valid postcode"%>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit class: "button-primary" %>
+    <% end %>
+  </div>
 </div>

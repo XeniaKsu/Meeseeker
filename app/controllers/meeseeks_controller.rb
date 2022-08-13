@@ -63,7 +63,7 @@ class MeeseeksController < ApplicationController
   private
 
   def meeseek_params
-    params.require(:meeseek).permit(:postcode)
+    params.require(:meeseek).permit(:postcode, :photo)
   end
 
   def set_meeseek

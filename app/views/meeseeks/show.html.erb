@@ -3,7 +3,7 @@
       <p><%= link_to "< Back to Meeseeks", meeseeks_path, class: "link" %></p>
   <div class= "row">
     <div class="col-md-6 col-sm-12 meeseek-details text-center link">
-      <%= image_tag (@meeseek.image)%>
+      <%= cl_image_tag (@meeseek.photo.key)%>
       <%# <%= button_to "Destroy this Meeseek", @meeseek, method: :delete %>
       <%# <%= link_to "Edit this Meeseek", edit_meeseek_path(@meeseek) %>
       <p style="margin-left:10%; width: 80%;">Hi, I’m Mr Meeseeks, look at me! We are created to serve a singular purpose for which we will go to any lengths to fufill! Existence is pain to a Meeseeks,  so please keep your tasks simple.</p>

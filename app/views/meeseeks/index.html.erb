@@ -15,7 +15,6 @@
         <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "enter postcode" %>
         <%= submit_tag "Search", class: "button-primary px-5 mx-4" %>
         <% end %>
-
       </div>
     </div>
   </div>
@@ -25,7 +24,7 @@
           <% @meeseeks.each do |meeseek| %>
             <%= link_to meeseek_path(meeseek) do %>
                 <div class="card">
-                  <div class="card-img-top meeseek-card" style="background-image:url(<%= asset_path meeseek.image %>)">
+                  <div class="card-img-top meeseek-card" style="background-image:url('<%= cl_image_path meeseek.photo.key %>')">
                   </div>
                   <div class="card-body d-flex justify-content-around p-1">
                       <div class="card-title text-start">
