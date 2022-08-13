@@ -1,9 +1,9 @@
 .meeseeker-my-bookings {
   border-radius: 50%;
-  height: 400px;
-  width: 400px;
-  padding-top: 16px;
-  text-align: center;
+  height: 350px;
+  width: 350px;
+  margin-top: 16px;
+  box-shadow: 5px 5px 8px rgba(0,0,0,0.2);
 }
 
 .bookings ul {
@@ -16,6 +16,7 @@
   padding: 8px;
   margin: 8px;
   border-radius: 8px;
+  box-shadow: 5px 5px 8px rgba(0,0,0,0.2);
 }
 
 .profile_pic {

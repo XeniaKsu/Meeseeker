@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
       @booking.meeseek = @meeseek
       @booking.user = current_user
       if @booking.save
-        redirect_to my_bookings_meeseeks_path, success: "Congrats, your booking has been confirmed"
+        redirect_to my_bookings_meeseeks_path, success: "Caaaaaaan doooo "
       else
         redirect_to meeseek_path(:id), danger: @booking.errors[:task].join(" & ")
       end

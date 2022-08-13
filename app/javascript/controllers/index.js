@@ -4,8 +4,8 @@
 
 import { application } from "./application"
 
-// import BookingConfirmController from "./booking_confirm_controller"
-// application.register("booking-confirm", BookingConfirmController)
+import BookingConfirmController from "./booking_confirm_controller"
+application.register("booking-confirm", BookingConfirmController)
 
 import CalendarController from "./calendar_controller"
 application.register("calendar", CalendarController)
@@ -15,3 +15,6 @@ application.register("hello", HelloController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
+
+import SearchFieldRevealController from "./search_field_reveal_controller"
+application.register("search-field-reveal", SearchFieldRevealController)
