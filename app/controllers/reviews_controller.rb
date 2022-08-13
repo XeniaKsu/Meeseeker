@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
       if @review.save
         redirect_to my_bookings_meeseeks_path, success: "Thank you for your review"
       else
-        redirect_to my_bookings_meeseeks_path, danger: @review.errors[:task].join(" & ")
+        render my_bookings_meeseeks_path, status: :unprocessable_entity
       end
     else
       redirect_to new_user_session_path, danger: "You need to be logged in"
