@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get :my_bookings
     end
     resources :bookings, only: [:index, :show, :update, :destroy, :create, :edit]
+    resources :reviews, only: [ :create, :show, :new ]
   end
 
 

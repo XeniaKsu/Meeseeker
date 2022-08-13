@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user, dependent: :destroy
   belongs_to :meeseek, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   validates :task, presence: true
   validate :date_in_past
   validate :validate_other_booking_overlap, on: :create

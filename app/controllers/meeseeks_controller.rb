@@ -54,6 +54,7 @@ class MeeseeksController < ApplicationController
 
   def my_bookings
     @my_bookings = Booking.where(user_id: current_user)
+    @review = Review.new
   end
 
   private
