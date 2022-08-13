@@ -10,14 +10,10 @@ Rails.application.routes.draw do
     collection do
       get :my_bookings
     end
-    resources :bookings, only: [:index, :show, :update, :destroy, :create, :edit]
-    collection do
-      get :my_reviews
-    resources :reviews, only: [:create]
+    resources :bookings, only: [:index, :show, :update, :destroy, :create, :edit] do
+      resources :reviews, only: [:create]
     end
   end
-
-
 
 
 

@@ -15,6 +15,7 @@ class BookingsController < ApplicationController
     @selected_booking = Booking.find(params[:id])
     @meeseek = Meeseek.new
     @bookings = Booking.all
+    @review = Review.new
   end
 
   def create
@@ -26,7 +27,7 @@ class BookingsController < ApplicationController
       if @booking.save
         redirect_to my_bookings_meeseeks_path, success: "Congrats, your booking has been confirmed"
       else
-        redirect_to meeseek_path(:id), danger: @booking.errors[:task].join(" & ")
+        redirect_to my_bookings_meeseeks_path, danger: @booking.errors[:task].join(" & ")
       end
     else
       redirect_to new_user_session_path, danger: "You need to be logged in"
@@ -49,6 +50,10 @@ class BookingsController < ApplicationController
     else
       redirect_to meeseek_path(:id), danger: @booking.errors[:task].join(" & ")
     end
+  end
+
+  def my_reviews
+    @my_reviews = Review.where(booking_id: params[:id])
   end
 
   private
