@@ -20,7 +20,14 @@ class MeeseeksController < ApplicationController
 
   def show
     @booking = Booking.new
+
     @review = Review.new
+
+    @calendar_bookings = Booking.where(
+      date_available_from: Date.today.beginning_of_month.beginning_of_week..Date.today.end_of_year,
+      meeseek_id: params[:id]
+    )
+
   end
 
   def new
@@ -62,7 +69,7 @@ class MeeseeksController < ApplicationController
   private
 
   def meeseek_params
-    params.require(:meeseek).permit(:postcode)
+    params.require(:meeseek).permit(:postcode, :photo)
   end
 
   def set_meeseek

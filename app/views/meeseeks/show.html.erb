@@ -3,28 +3,32 @@
       <p><%= link_to "< Back to Meeseeks", meeseeks_path, class: "link" %></p>
   <div class= "row">
     <div class="col-md-6 col-sm-12 meeseek-details text-center link">
-      <%= image_tag (@meeseek.image)%>
+      <%= cl_image_tag (@meeseek.photo.key)%>
       <%# <%= button_to "Destroy this Meeseek", @meeseek, method: :delete %>
       <%# <%= link_to "Edit this Meeseek", edit_meeseek_path(@meeseek) %>
 
       <p style="margin-left:10%; width: 80%;">Hi, I'm Mr Meeseeks, look at me! We are created to serve a singular purpose for which we will go to any lengths to fufill! Existence is pain to a Meeseeks,  so please keep your tasks simple.</p>
     </div>
 
-    <div class="col-md-6 col-sm-12  ">
+    <div class="col-md-6 col-sm-12" data-controller="calendar">
       <div class="meeseek-summary">
         <h1>Mr Meeseeks #<%= @meeseek.id %></h1>
         <p>Postcode: <%= @meeseek.postcode %></p>
         <p>Owner contact: <%= @meeseek.user.email %></p>
+                  <button type="button"
+                data-action="click->calendar#display"
+                data-calendar-target="button"
+                class="button-primary">View availability</button>
+        <%= render "shared/calendar" %>
       </div>
       <div class="book-meeseek">
         <h1>Book a meeseek</h1>
-        <p>Next Available Date: <%= @meeseek.available_dates.first %></p>
         <% if user_signed_in? %>
           <%= simple_form_for ([@meeseek, @booking]) do |f| %>
             <%= f.input :task, placeholder: "Enter your task"%>
             <%= f.date_field :date_available_from, as: :date, placeholder: "You need Mr Meeseeks from"%>
             <%= f.date_field :date_available_to, as: :date, placeholder: "You need Mr Meeseeks until"%>
-            <%= f.submit class: "button-book" %>
+            <%= f.submit class: "button-primary mt-3" %>
           <% end %>
         <% else %>
         <%= simple_form_for ([@meeseek, @booking]) do |f| %>
@@ -44,7 +48,7 @@
 <%# HHow waw"How was your experience with this Meeseek?"
 else<%%>
 <%# <% @meeseek.eachreviews.each do|review"||"""%>
-<%# <p><%re= review.comntent%> </p> %> %> %> %>
+<%# <p><%re= review.comntent%> <%#</p> %>
 
 
       <%# </div>

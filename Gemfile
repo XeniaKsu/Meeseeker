@@ -55,6 +55,11 @@ gem "pg_search"
 
 gem "simple_calendar", "~> 2.4"
 
+gem "dotenv-rails", groups: [:development, :test]
+
+# Cloudinary
+gem "cloudinary"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -85,3 +90,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# Gem file for booking calendar overlap
+gem 'validates_overlap'

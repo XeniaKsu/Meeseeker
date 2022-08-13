@@ -6,13 +6,12 @@ h1, h2 {
   font-weight: 700;
   color: $dark-brown;
 }
-
 h3, h4, h5 h6 {
   font-family: 'ubuntu', sans-serif;
   font-weight: 400;
+  font-size: 18px;
   color: $dark-brown;
 }
-
 .link {
   text-decoration: none;
   color: $dark-brown;
@@ -20,12 +19,11 @@ h3, h4, h5 h6 {
     color:$meeseek-blue;
   }
 }
-
 p {
   font-family: 'Poppins', sans-serif;
   color: $dark-brown;
 }
-
 .background-blue {
-  background-color: $meeseek-blue;
+  background-color: $beige;
+  box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.5);
 }

@@ -19,5 +19,9 @@ application.register("insert-in-list", InsertInListController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+
 import ReviewController from "./review_controller"
 application.register("review", ReviewController)
+
+import SearchFieldRevealController from "./search_field_reveal_controller"
+application.register("search-field-reveal", SearchFieldRevealController)

@@ -1,19 +1,21 @@
 <div class="container">
   <div class="my_bookings row">
-    <div class="profile_pic col-md-6 col-sm-12">
+    <div class="profile_pic col-md-5 col-sm-12 mt-3">
         <%= image_tag 'mr-meeseeks.png', class: 'meeseeker-my-bookings'%>
-        <h1><%= current_user.email %></h1>
+
     </div>
-    <div class="bookings col-md-6 col-sm-12">
+    <div class="bookings col-md-7 col-sm-12">
       <h2>My bookings</h2>
+        <h3><%= current_user.email %></h3>
         <ul>
           <% @my_bookings.each do |booking|%>
-            <div class="my-booking-card flex-container">
+            <div class="my-booking-card flex-container mt-5 p-3">
               <div class="flex-item">
                 <li>
-                  <h4>Booking Task: <%= booking.task %></h4>
-                  <h5>Meeseek: <%= booking.meeseek_id %></h5>
-                  <p>From: <%= booking.date_available_from %> To: <%= booking.date_available_to %></p>
+
+                  <h4><span style="font-weight:600;">Booking Task: </span><%= booking.task %></h4>
+                  <h4><span style="font-weight:600;">Meeseek:  </span><%= booking.meeseek_id %></h4>
+                  <h4><span style="font-weight:600;">From:  </span><%= booking.date_available_from %> To: <%= booking.date_available_to %></h4>
                   <h1>Review your Meeseek</h1>
                   <% if Review.exists?(booking_id: booking.id) %>
                     <p>You have already revied this Booking</p>
@@ -24,13 +26,14 @@
                       <%= f.submit class: "btn btn-primary" %>
                     <% end %>
                   <% end %>
+
                 </li>
               </div>
               <div class="flex-item">
-                <%= link_to edit_meeseek_booking_path(booking.meeseek_id, booking.id) do %>
-                <i class="fa-solid fa-pen-to-square", style="color:#A3B081"></i>
+                <%= link_to edit_meeseek_booking_path(booking.meeseek_id, booking.id, class:"icon-link") do %>
+                <i class="fa-solid fa-pen-to-square" style="color:#A3B081;"></i>
                 <% end %>
-                <i class="fa-solid fa-ban", style="color:#A3B081"></i>
+                <i class="fa-solid fa-ban" style="color:#A3B081" class="mt-5"></i>
               </div>
             </div>
           <% end %>

@@ -2,7 +2,7 @@
   <h1>Edit your Booking</h1>
   <div class= "row">
     <div class="col-md-6 col-sm-12 meeseek-details text-center link">
-      <%= image_tag (@meeseek.image)%>
+      <%= cl_image_tag (@meeseek.photo.key)%>
       <%# <%= button_to "Destroy this Meeseek", @meeseek, method: :delete %>
       <%# <%= link_to "Edit this Meeseek", edit_meeseek_path(@meeseek) %>
       <p>Hi, I’m Mr Meeseeks, look at me! We are created to serve a singular purpose for which we will go to any lengths to fufill! Existence is pain to a Meeseeks,  so please keep your tasks simple.</p>
@@ -13,16 +13,13 @@
         <h1>Mr Meeseeks #<%= @meeseek.id %></h1>
         <p>Postcode: <%= @meeseek.postcode %></p>
         <p>Owner contact: <%= @meeseek.user.email %></p>
-        <button type="button" class="button-primary">Book this Meeseek</button>
-        <button type="button"
+                  <button type="button"
                 data-action="click->calendar#display"
                 data-calendar-target="button"
-                class="button-primary">View availability</button>
+                class="button-primary mb-3">View availability</button>
         <%= render "shared/calendar" %>
-      </div>
       <div class="book-meeseek">
         <h1>Edit your Booking</h1>
-        <p>Next Available Date: <%= @meeseek.available_dates.first %></p>
         <% if user_signed_in? %>
           <%= simple_form_for ([@meeseek, @booking]) do |f| %>
             <%= f.input :task, placeholder: "Enter your task"%>
@@ -45,4 +42,5 @@
   </div>
 
 
+</div>
 </div>

@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
       @booking.meeseek = @meeseek
       @booking.user = current_user
       if @booking.save
-        redirect_to my_bookings_meeseeks_path, success: "Congrats, your booking has been confirmed"
+        redirect_to my_bookings_meeseeks_path, success: "Caaaaaaan doooo "
       else
         redirect_to my_bookings_meeseeks_path, danger: @booking.errors[:task].join(" & ")
       end
@@ -37,6 +37,10 @@ class BookingsController < ApplicationController
   def edit
     @meeseek = Meeseek.find(params[:meeseek_id])
     @booking = Booking.find(params[:id])
+    @calendar_bookings = Booking.where(
+      date_available_from: Date.today.beginning_of_month.beginning_of_week..Date.today.end_of_year,
+      meeseek_id: params[:meeseek_id]
+    )
   end
 
   def update

@@ -1,5 +1,5 @@
 .button-primary {
-  background-color: $bogey-green;
+  background-color: $meeseek-blue;
   border-radius: 25px;
   font-family: 'poppins', sans-serif;
   border: none;
@@ -8,6 +8,11 @@
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   text-decoration: none;
   color: white;
+
+  &:hover {
+    background-color: $button-hover;
+    color: white;
+  }
 }
 
 .button-book {
@@ -34,4 +39,8 @@
 .book-meeseek .button-primary {
   display: block;
   width: 46%;
+}
+
+.icon-link {
+  text-decoration: none;
 }
