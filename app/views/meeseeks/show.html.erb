@@ -9,11 +9,16 @@
       <p style="margin-left:10%; width: 80%;">Hi, I’m Mr Meeseeks, look at me! We are created to serve a singular purpose for which we will go to any lengths to fufill! Existence is pain to a Meeseeks,  so please keep your tasks simple.</p>
     </div>
 
-    <div class="col-md-6 col-sm-12  ">
+    <div class="col-md-6 col-sm-12" data-controller="calendar">
       <div class="meeseek-summary">
         <h1>Mr Meeseeks #<%= @meeseek.id %></h1>
         <p>Postcode: <%= @meeseek.postcode %></p>
         <p>Owner contact: <%= @meeseek.user.email %></p>
+                  <button type="button"
+                data-action="click->calendar#display"
+                data-calendar-target="button"
+                class="button-primary">View availability</button>
+        <%= render "shared/calendar" %>
       </div>
       <div class="book-meeseek">
         <h1>Book a meeseek</h1>

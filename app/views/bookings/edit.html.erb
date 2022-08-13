@@ -13,10 +13,13 @@
         <h1>Mr Meeseeks #<%= @meeseek.id %></h1>
         <p>Postcode: <%= @meeseek.postcode %></p>
         <p>Owner contact: <%= @meeseek.user.email %></p>
-
+                  <button type="button"
+                data-action="click->calendar#display"
+                data-calendar-target="button"
+                class="button-primary mb-3">View availability</button>
+        <%= render "shared/calendar" %>
       <div class="book-meeseek">
         <h1>Edit your Booking</h1>
-        <p>Next Available Date: <%= @meeseek.available_dates.first %></p>
         <% if user_signed_in? %>
           <%= simple_form_for ([@meeseek, @booking]) do |f| %>
             <%= f.input :task, placeholder: "Enter your task"%>
@@ -39,4 +42,5 @@
   </div>
 
 
+</div>
 </div>
