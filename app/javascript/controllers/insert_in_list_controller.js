@@ -12,17 +12,17 @@ export default class extends Controller {
 
   send(event) {
     event.preventDefault()
+    this.fetch(this.formTarget.action, {
+      method: "POST",
+      headers: { "Accept": "application/json", "X-CSRF-Token": this.csrfToken },
+      body: new FormData(this.formTarget)
+    })
+      .then(response => response.json)
+      .then((data) => {
+        console.log(data)
+      })
 
     console.log("TODO: send request in AJAX")
   }
 
-  fetch(this.formTarget.action, {
-    method: "POST",
-    headers: { "Accept": "application/json", "X-CSRF-Token": this.csrfToken },
-    body: new FormData(this.formTarget)
-  })
-    .then(response => response.json())
-    .then((data) => {
-      console.log(data)
-    })
 }
