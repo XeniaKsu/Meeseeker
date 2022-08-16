@@ -1,6 +1,6 @@
 class MeeseeksController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[ index show ]
-  before_action :set_meeseek, only: %i[show edit update destroy]
+  before_action :set_meeseek, only: %i[show edit update destroy ]
 
   def index
     if params[:query].present?
@@ -20,10 +20,14 @@ class MeeseeksController < ApplicationController
 
   def show
     @booking = Booking.new
+
+    @review = Review.new
+
     @calendar_bookings = Booking.where(
       date_available_from: Date.today.beginning_of_month.beginning_of_week..Date.today.end_of_year,
       meeseek_id: params[:id]
     )
+
   end
 
   def new
@@ -58,6 +62,8 @@ class MeeseeksController < ApplicationController
 
   def my_bookings
     @my_bookings = Booking.where(user_id: current_user)
+
+    @review = Review.new
   end
 
   private

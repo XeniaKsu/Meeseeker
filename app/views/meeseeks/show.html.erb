@@ -6,7 +6,8 @@
       <%= cl_image_tag (@meeseek.photo.key)%>
       <%# <%= button_to "Destroy this Meeseek", @meeseek, method: :delete %>
       <%# <%= link_to "Edit this Meeseek", edit_meeseek_path(@meeseek) %>
-      <p style="margin-left:10%; width: 80%;">Hi, I’m Mr Meeseeks, look at me! We are created to serve a singular purpose for which we will go to any lengths to fufill! Existence is pain to a Meeseeks,  so please keep your tasks simple.</p>
+
+      <p style="margin-left:10%; width: 80%;">Hi, I'm Mr Meeseeks, look at me! We are created to serve a singular purpose for which we will go to any lengths to fufill! Existence is pain to a Meeseeks,  so please keep your tasks simple.</p>
     </div>
 
     <div class="col-md-6 col-sm-12" data-controller="calendar">
@@ -38,6 +39,47 @@
           <% end %>
         <% end %>
       </div>
+
+      <h2>Reviews of this Meeseek</h2>
+
+      <% reviews = Review.where(booking_id: @meeseek.bookings) %>
+      <% if reviews.empty? %>
+        <h3>No reviews for this Meeseek yet</h3>
+      <% else %>
+        <h2><%= pluralize reviews.size, "review" %></h2>
+        <h2>This Meeseek's rating: <%= (reviews.sum {|num| (num.rating.to_f) } / reviews.length).round(2) %> </h2>
+          <% reviews.each do |review| %>
+          <div class="my-booking-card flex-container mt-5 p-3">
+            <div class="flex-items">
+              <h3>Rating: <%= review.rating %></h3>
+              <p><%= review.comment %></p>
+            </div>
+          </div>
+        <% end %>
+
+      <% end %>
+ <%# # start odf the codefor the reviews %>
+
+
+
+
+          <%# <% if@meeseeks.reviews.blamnk?%>
+<%# HHow waw"How was your experience with this Meeseek?"
+else<%%>
+<%# <% @meeseek.eachreviews.each do|review"||"""%>
+<%# <p><%re= review.comntent%> <%#</p> %>
+
+
+      <%# </div>
+      a-insert-in-list-target="form"
+      <%= simple_form_for([@meeseek, @review],data:{in
+sert_in_list_target: "form"}) do|F|%>,
+        <%# action: "submit->insert-in-list#send" %>
+
+<%# <%=f.input :content%>
+<%# <%=%><%#f.button :submit %>
+      <%# <% end %>
+    <%# </div> %>
 
     </div>
 

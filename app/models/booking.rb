@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user, dependent: :destroy
   belongs_to :meeseek, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   validates :task, presence: true
   validates :date_available_from, presence: true
   validates :date_available_to, presence: true

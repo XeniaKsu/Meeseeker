@@ -12,9 +12,21 @@
             <div class="my-booking-card flex-container mt-5 p-3">
               <div class="flex-item">
                 <li>
+
                   <h4><span style="font-weight:600;">Booking Task: </span><%= booking.task %></h4>
                   <h4><span style="font-weight:600;">Meeseek:  </span><%= booking.meeseek_id %></h4>
                   <h4><span style="font-weight:600;">From:  </span><%= booking.date_available_from %> To: <%= booking.date_available_to %></h4>
+                  <h1>Review your Meeseek</h1>
+                  <% if Review.exists?(booking_id: booking.id) %>
+                    <p>You have already revied this Booking</p>
+                  <% else  %>
+                    <%= simple_form_for [booking.meeseek , booking, @review] do |f| %>
+                      <%= f.input :comment, placeholder: "How was it?"%>
+                      <%= f.input :rating, as: :select, collection: (1..5), required: true, prompt: "How was your experience", input_html: { data: { controller: "star-rating" } }  %>
+                      <%= f.submit class: "btn btn-primary" %>
+                    <% end %>
+                  <% end %>
+
                 </li>
               </div>
               <div class="flex-item">
